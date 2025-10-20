@@ -47,6 +47,7 @@
             this.numBoardSize = new System.Windows.Forms.NumericUpDown();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.pnlBoard = new System.Windows.Forms.Panel();
+            this.lblTurn = new System.Windows.Forms.Label();
             this.bluePlayer.SuspendLayout();
             this.redPlayer.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -111,6 +112,7 @@
             this.label1.Size = new System.Drawing.Size(91, 19);
             this.label1.TabIndex = 4;
             this.label1.Text = "Red Player";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // redSButton
             // 
@@ -144,7 +146,7 @@
             this.bluePlayer.Controls.Add(this.textBox2);
             this.bluePlayer.Location = new System.Drawing.Point(12, 257);
             this.bluePlayer.Name = "bluePlayer";
-            this.bluePlayer.Size = new System.Drawing.Size(200, 100);
+            this.bluePlayer.Size = new System.Drawing.Size(200, 199);
             this.bluePlayer.TabIndex = 7;
             this.bluePlayer.TabStop = false;
             // 
@@ -153,9 +155,9 @@
             this.redPlayer.Controls.Add(this.label1);
             this.redPlayer.Controls.Add(this.redOButton);
             this.redPlayer.Controls.Add(this.redSButton);
-            this.redPlayer.Location = new System.Drawing.Point(988, 257);
+            this.redPlayer.Location = new System.Drawing.Point(1123, 257);
             this.redPlayer.Name = "redPlayer";
-            this.redPlayer.Size = new System.Drawing.Size(200, 100);
+            this.redPlayer.Size = new System.Drawing.Size(200, 183);
             this.redPlayer.TabIndex = 8;
             this.redPlayer.TabStop = false;
             // 
@@ -188,9 +190,9 @@
             this.groupBox1.Controls.Add(this.simpleGameButton);
             this.groupBox1.Controls.Add(this.simpleGameLabel);
             this.groupBox1.Controls.Add(this.generalGameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(415, 3);
+            this.groupBox1.Location = new System.Drawing.Point(416, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(430, 114);
+            this.groupBox1.Size = new System.Drawing.Size(622, 114);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
@@ -229,7 +231,7 @@
             // 
             this.gridSizeLabel.AutoSize = true;
             this.gridSizeLabel.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridSizeLabel.Location = new System.Drawing.Point(920, 9);
+            this.gridSizeLabel.Location = new System.Drawing.Point(1059, 26);
             this.gridSizeLabel.Name = "gridSizeLabel";
             this.gridSizeLabel.Size = new System.Drawing.Size(113, 28);
             this.gridSizeLabel.TabIndex = 12;
@@ -237,7 +239,7 @@
             // 
             // numBoardSize
             // 
-            this.numBoardSize.Location = new System.Drawing.Point(1039, 11);
+            this.numBoardSize.Location = new System.Drawing.Point(1178, 28);
             this.numBoardSize.Maximum = new decimal(new int[] {
             10,
             0,
@@ -256,29 +258,43 @@
             0,
             0,
             0});
+            this.numBoardSize.ValueChanged += new System.EventHandler(this.numBoardSize_ValueChanged);
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(1039, 43);
+            this.btnNewGame.Location = new System.Drawing.Point(1178, 60);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(120, 26);
             this.btnNewGame.TabIndex = 14;
             this.btnNewGame.Text = "New Game!";
             this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // pnlBoard
             // 
-            this.pnlBoard.Location = new System.Drawing.Point(345, 136);
+            this.pnlBoard.Location = new System.Drawing.Point(456, 146);
             this.pnlBoard.Name = "pnlBoard";
             this.pnlBoard.Size = new System.Drawing.Size(500, 500);
             this.pnlBoard.TabIndex = 15;
+            // 
+            // lblTurn
+            // 
+            this.lblTurn.AutoSize = true;
+            this.lblTurn.Font = new System.Drawing.Font("Century Gothic", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurn.Location = new System.Drawing.Point(14, 648);
+            this.lblTurn.Name = "lblTurn";
+            this.lblTurn.Size = new System.Drawing.Size(190, 25);
+            this.lblTurn.TabIndex = 16;
+            this.lblTurn.Text = "Current Turn: Blue";
+            this.lblTurn.Click += new System.EventHandler(this.lblTurn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1347, 743);
+            this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.pnlBoard);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.numBoardSize);
@@ -290,6 +306,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.bluePlayer.ResumeLayout(false);
             this.bluePlayer.PerformLayout();
             this.redPlayer.ResumeLayout(false);
@@ -323,6 +340,7 @@
         private System.Windows.Forms.NumericUpDown numBoardSize;
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Panel pnlBoard;
+        private System.Windows.Forms.Label lblTurn;
     }
 }
 
