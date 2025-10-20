@@ -44,9 +44,13 @@
             this.generalGameButton = new System.Windows.Forms.RadioButton();
             this.gameModeLabel = new System.Windows.Forms.Label();
             this.gridSizeLabel = new System.Windows.Forms.Label();
+            this.numBoardSize = new System.Windows.Forms.NumericUpDown();
+            this.btnNewGame = new System.Windows.Forms.Button();
+            this.pnlBoard = new System.Windows.Forms.Panel();
             this.bluePlayer.SuspendLayout();
             this.redPlayer.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBoardSize)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -225,11 +229,49 @@
             // 
             this.gridSizeLabel.AutoSize = true;
             this.gridSizeLabel.Font = new System.Drawing.Font("Century Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridSizeLabel.Location = new System.Drawing.Point(972, 41);
+            this.gridSizeLabel.Location = new System.Drawing.Point(920, 9);
             this.gridSizeLabel.Name = "gridSizeLabel";
             this.gridSizeLabel.Size = new System.Drawing.Size(113, 28);
             this.gridSizeLabel.TabIndex = 12;
             this.gridSizeLabel.Text = "Grid Size";
+            // 
+            // numBoardSize
+            // 
+            this.numBoardSize.Location = new System.Drawing.Point(1039, 11);
+            this.numBoardSize.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numBoardSize.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numBoardSize.Name = "numBoardSize";
+            this.numBoardSize.Size = new System.Drawing.Size(120, 26);
+            this.numBoardSize.TabIndex = 13;
+            this.numBoardSize.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Location = new System.Drawing.Point(1039, 43);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(120, 26);
+            this.btnNewGame.TabIndex = 14;
+            this.btnNewGame.Text = "New Game!";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            // 
+            // pnlBoard
+            // 
+            this.pnlBoard.Location = new System.Drawing.Point(345, 136);
+            this.pnlBoard.Name = "pnlBoard";
+            this.pnlBoard.Size = new System.Drawing.Size(500, 500);
+            this.pnlBoard.TabIndex = 15;
             // 
             // Form1
             // 
@@ -237,6 +279,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.pnlBoard);
+            this.Controls.Add(this.btnNewGame);
+            this.Controls.Add(this.numBoardSize);
             this.Controls.Add(this.gridSizeLabel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.redPlayer);
@@ -251,6 +296,7 @@
             this.redPlayer.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBoardSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,6 +320,9 @@
         private System.Windows.Forms.RadioButton generalGameButton;
         private System.Windows.Forms.RadioButton simpleGameButton;
         private System.Windows.Forms.Label gridSizeLabel;
+        private System.Windows.Forms.NumericUpDown numBoardSize;
+        private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Panel pnlBoard;
     }
 }
 
