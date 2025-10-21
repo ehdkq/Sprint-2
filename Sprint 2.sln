@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sprint 2", "Sprint 2.csproj", "{01F095A6-52B9-49C2-97C1-005230E5161E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSGame.Tests", "..\SOSGame.Tests\SOSGame.Tests.csproj", "{FCD6D511-24AB-4774-A2E2-4DB58367D7E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOSGame.Tests", "SOSGame.Tests\SOSGame.Tests.csproj", "{FCD6D511-24AB-4774-A2E2-4DB58367D7E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
