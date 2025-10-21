@@ -16,6 +16,7 @@ namespace Sprint_2
         public int BoardSize {  get; private set; }
         public Cell[,] GameBoard { get; private set; }
         public Player CurrentTurn { get; private set; }
+        public GameMode Mode { get; private set; }
 
         //starts the game
         public void NewGame(int boardSize)
@@ -23,6 +24,14 @@ namespace Sprint_2
             BoardSize = boardSize;
             GameBoard = new Cell[BoardSize, BoardSize]; //initializes board size
             CurrentTurn = Player.Blue; //the default player is blue
+
+            for (int r = 0; r < BoardSize; r++)
+            {
+                for (int c = 0; c < BoardSize; c++)
+                {
+                    GameBoard[r, c] = Cell.Empty;
+                }
+            }
         }
 
         //determines if an S or an O is on the board

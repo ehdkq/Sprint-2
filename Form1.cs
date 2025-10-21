@@ -40,9 +40,13 @@ namespace Sprint_2
         {
             int boardSize = (int)numBoardSize.Value;
 
+            var mode = simpleGameButton.Checked ? GameMode.Simple : GameMode.General;
+
             game.NewGame(boardSize);
 
             CreateBoardGrid(boardSize);
+
+            UpdateTurnLabel();
         }
         
         private void CreateBoardGrid(int size)
@@ -76,8 +80,16 @@ namespace Sprint_2
             Button clickedButton = sender as Button;
             Point position = (Point)clickedButton.Tag;
 
-            var move = redSButton.Checked ? Cell.S : Cell.O;
+            Cell move; 
 
+            if (game.CurrentTurn == Player.Blue)
+            {
+                move = blueSButton.Checked ? Cell.S : Cell.O;
+            }
+            else
+            {
+                move = redSButton.Checked ? Cell.S : Cell.O;
+            }
             if (game.MakeMove(position.X, position.Y, move))
             {
                 clickedButton.Text = move.ToString();
@@ -89,6 +101,17 @@ namespace Sprint_2
         private void UpdateTurnLabel()
         {
             lblTurn.Text = $"Current Turn: {game.CurrentTurn}";
+
+            if (game.CurrentTurn == Player.Blue)
+            {
+                bluePlayer.Enabled = true ;
+                redPlayer.Enabled = false;
+            }
+            else
+            {
+                bluePlayer.Enabled = false;
+                redPlayer.Enabled = true ; 
+            }
         }
         private void numBoardSize_ValueChanged(object sender, EventArgs e)
         {
@@ -106,6 +129,11 @@ namespace Sprint_2
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void redOButton_CheckedChanged(object sender, EventArgs e)
         {
 
         }
