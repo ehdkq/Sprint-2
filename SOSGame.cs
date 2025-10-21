@@ -19,9 +19,14 @@ namespace Sprint_2
         public GameMode Mode { get; private set; }
 
         //starts the game
-        public void NewGame(int boardSize)
+        public void NewGame(int boardSize, GameMode mode)
         {
+            if (boardSize < 3 || boardSize > 10)
+            {
+                throw new ArgumentOutOfRangeException(nameof(boardSize), "Board size must be between 3 and 10!");
+            }
             BoardSize = boardSize;
+            Mode = mode;
             GameBoard = new Cell[BoardSize, BoardSize]; //initializes board size
             CurrentTurn = Player.Blue; //the default player is blue
 

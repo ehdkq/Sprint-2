@@ -80,6 +80,7 @@
             // blueSButton
             // 
             this.blueSButton.AutoSize = true;
+            this.blueSButton.Checked = true;
             this.blueSButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blueSButton.Location = new System.Drawing.Point(21, 75);
             this.blueSButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -117,6 +118,7 @@
             // redSButton
             // 
             this.redSButton.AutoSize = true;
+            this.redSButton.Checked = true;
             this.redSButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.redSButton.Location = new System.Drawing.Point(10, 72);
             this.redSButton.Name = "redSButton";
@@ -200,6 +202,7 @@
             // simpleGameButton
             // 
             this.simpleGameButton.AutoSize = true;
+            this.simpleGameButton.Checked = true;
             this.simpleGameButton.Location = new System.Drawing.Point(258, 76);
             this.simpleGameButton.Name = "simpleGameButton";
             this.simpleGameButton.Size = new System.Drawing.Size(14, 13);

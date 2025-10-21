@@ -42,7 +42,7 @@ namespace Sprint_2
 
             var mode = simpleGameButton.Checked ? GameMode.Simple : GameMode.General;
 
-            game.NewGame(boardSize);
+            game.NewGame(boardSize, mode);
 
             CreateBoardGrid(boardSize);
 
