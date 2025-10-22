@@ -18,7 +18,7 @@ namespace Sprint_2
         public Form1()
         {
             InitializeComponent();
-            game = new SOSGame();
+            game = new SOSGame(); //sets game variable to SOSGame
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -36,24 +36,24 @@ namespace Sprint_2
 
         }
 
-        private void btnNewGame_Click(object sender, EventArgs e)
+        private void btnNewGame_Click(object sender, EventArgs e) //what happens when you click the new game button
         {
-            int boardSize = (int)numBoardSize.Value;
+            int boardSize = (int)numBoardSize.Value; //declares the boardSize the user inputs from the field
 
-            var mode = simpleGameButton.Checked ? GameMode.Simple : GameMode.General;
+            var mode = simpleGameButton.Checked ? GameMode.Simple : GameMode.General; //checks which game mode is selected
 
-            game.NewGame(boardSize, mode);
+            game.NewGame(boardSize, mode); //starts the game
 
-            CreateBoardGrid(boardSize);
+            CreateBoardGrid(boardSize); //creates the grid based on the boardSize
 
-            UpdateTurnLabel();
+            UpdateTurnLabel(); //updates the turn (red or blue)
         }
         
         private void CreateBoardGrid(int size)
         {
-            pnlBoard.Controls.Clear();
-            gridButtons = new Button[size, size];
-            int buttonSize = pnlBoard.Width / size;
+            pnlBoard.Controls.Clear(); //clears board
+            gridButtons = new Button[size, size]; //sets the buttons on the grid
+            int buttonSize = pnlBoard.Width / size; //sets the size for the buttons
 
             for (int row = 0; row < size; row++)
             {
@@ -61,6 +61,7 @@ namespace Sprint_2
                 {
                     var button = new Button
                     {
+                        //sets all the button parameters
                         Width = buttonSize,
                         Height = buttonSize,
                         Left = col * buttonSize,
@@ -82,15 +83,15 @@ namespace Sprint_2
 
             Cell move; 
 
-            if (game.CurrentTurn == Player.Blue)
+            if (game.CurrentTurn == Player.Blue) //if the turn is the blue player, put the s or o down
             {
                 move = blueSButton.Checked ? Cell.S : Cell.O;
             }
             else
             {
-                move = redSButton.Checked ? Cell.S : Cell.O;
+                move = redSButton.Checked ? Cell.S : Cell.O; //if not, put it for the red player
             }
-            if (game.MakeMove(position.X, position.Y, move))
+            if (game.MakeMove(position.X, position.Y, move)) //function for the moves
             {
                 clickedButton.Text = move.ToString();
                 clickedButton.Enabled = false;
@@ -98,18 +99,18 @@ namespace Sprint_2
             }
         }
 
-        private void UpdateTurnLabel()
+        private void UpdateTurnLabel() //updates turn label from red to blue and vice versa
         {
             lblTurn.Text = $"Current Turn: {game.CurrentTurn}";
 
             if (game.CurrentTurn == Player.Blue)
             {
-                bluePlayer.Enabled = true ;
+                bluePlayer.Enabled = true ; //switches from blue to red
                 redPlayer.Enabled = false;
             }
             else
             {
-                bluePlayer.Enabled = false;
+                bluePlayer.Enabled = false; //switches from red to blue
                 redPlayer.Enabled = true ; 
             }
         }
